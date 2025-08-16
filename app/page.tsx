@@ -1,103 +1,49 @@
-import Image from "next/image";
+"use client";
+
+import { useRouter } from 'next/navigation';
+import { Button } from "@/components/Button"
+import Logo from '@/components/Logo';
+import Image from 'next/image';
 
 export default function Home() {
+  const navigate = useRouter();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-black text-white">
+      <header className="px-5 py-4 border-b-2 border-b-red-300 rounded-b-2xl w-full ">
+        <div className="flex justify-between mx-auto">
+          <Logo
+              className="h-12 w-60 sm:h-16" // Responsive sizing
+              ariaLabel="Wallet App Logo"
+          />
+          <div className="flex justify-center items-center">
+            <Button className={"bg-red-500 hover:bg-red-600 rounded-full font-sans font-bold text-xl px-6 py-2 z-10"} onClick={() => navigate.push("/new-seed")}>
+              Create Account
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      
+      <div className="flex flex-col justify-center items-center min-h-80 sm:min-h-100 md:min-h-120">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-500/15 to-red-700/15 blur-3xl rounded-full z-0"></div>
+        <Image src="/logoipsum-custom-logo.svg" alt="Wallet App Logo" width={10} height={10} className="w-80 h-30" priority/>
+        <div className="z-10 text-center font-extralight text-lg sm:text-4xl md:text-6xl font-sans ">
+          Create multiple solana wallet accounts
+        </div>
+        <div className="z-10 text-center font-extralight text-lg sm:text-4xl md:text-6xl font-sans ">
+          crypto exhange made easy
+        </div>
+      </div>
+
+      <div className="relative z-10 flex flex-col justify-center items-center space-y-1">
+        <div className="text-xl md:text-3xl font-sans underline underline-offset-2">
+          Already have account?
+        </div>
+        <Button className={"bg-red-500 rounded-full font-sans font-bold text-xl px-6 py-2 md:text-3xl md:px-8 md:py-3 "} onClick={() => navigate.push("/old-seed")}>
+          Enter seed phrase
+        </Button>
+      </div>
+
     </div>
-  );
+  )
 }
