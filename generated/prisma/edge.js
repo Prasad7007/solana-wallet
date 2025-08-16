@@ -135,6 +135,10 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-1.1.x"
       }
     ],
     "previewFeatures": [],
@@ -161,8 +165,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           Int    @id @default(autoincrement())\n  username     String @unique\n  password     String\n  accountCount Int    @default(1)\n}\n",
-  "inlineSchemaHash": "3ab5afeb8d52e4127034a9de27e5c0c051848b6b55a7172c51ac8781eef1d50a",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"debian-openssl-1.1.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           Int    @id @default(autoincrement())\n  username     String @unique\n  password     String\n  accountCount Int    @default(1)\n}\n",
+  "inlineSchemaHash": "d63362d9b17e40a906b5111b621f7fe7407180be19ac98db7f9573e94e7ca95e",
   "copyEngine": true
 }
 config.dirname = '/'
