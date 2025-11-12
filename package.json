@@ -39,9 +39,7 @@
     "react-qr-code": "^2.0.18",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "tweetnacl": "^1.0.3"
-  },
-  "dependencies": {
+    "tweetnacl": "^1.0.3",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/bcrypt": "^5.0.2",
